@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharani Perumal Samy | Full Stack Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        accent: {
+                            500: '#f43f5e', // Rose
+                            400: '#fb7185',
+                        }
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #f43f5e 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid-bg {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Code Block Styling */
+        .code-window {
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+        }
+
+        .code-content {
+            padding: 1.5rem;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #e6edf3;
+        }
+
+        /* Syntax Highlighting */
+        .k {
+            color: #ff7b72;
+        }
+
+        /* keyword */
+        .f {
+            color: #d2a8ff;
+        }
+
+        /* function */
+        .s {
+            color: #a5d6ff;
+        }
+
+        /* string */
+        .c {
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        /* comment */
+        .t {
+            color: #79c0ff;
+        }
+
+        /* type */
+        .v {
+            color: #ffa657;
+        }
+
+        /* variable */
+        .n {
+            color: #e6edf3;
+        }
+
+        /* normal */
+        .annot {
+            color: #d2a8ff;
+        }
+
+        /* annotation */
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #f43f5e;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-rose-500/30 selection:text-rose-200">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-8 h-8 rounded bg-gradient-to-br from-rose-500 to-purple-600 flex items-center justify-center font-bold text-white text-sm">
+                    DP</div>
+                <span class="font-serif text-lg font-bold tracking-wide text-white">Dharani Perumal Samy</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#tech" class="hover:text-white transition-colors">Tech Stack</a>
+                <a href="#custom" class="hover:text-white transition-colors">Customizations</a>
+            </div>
+            <a href="mailto:dharanip911@gmail.com"
+                class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm font-medium hover:bg-white/10 transition-all text-white">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative pt-48 pb-32 px-6 overflow-hidden">
+        <div class="absolute inset-0 grid-bg bg-grid-pattern opacity-20 pointer-events-none"></div>
+        <div
+            class="absolute top-0 right-0 w-[800px] h-[800px] bg-rose-500/10 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/4">
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-xs font-medium tracking-widest text-rose-400 mb-8 uppercase">
+                Solo Architect & Developer
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
+                Blossom & Buds: <br />
+                <span class="text-gradient-accent font-serif italic pr-2">Engineered from Scratch.</span>
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed font-light">
+                A production-grade e-commerce platform built entirely by one developer.
+                No templates. No CMS. Just pure, high-performance engineering.
+            </p>
+
+            <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-400">
+                <div class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-400"></span> 100% Custom Codebase
+                </div>
+                <div class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span> 20+ Feature Modules
+                </div>
+                <div class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-purple-400"></span> Zero-Latency UI
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Comprehensive Feature Suite -->
+    <section id="features" class="py-24 px-6 border-y border-white/5 bg-white/[0.02]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-serif font-bold text-white mb-16 text-center">Comprehensive Feature Suite</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Commerce Core -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-rose-500/30 transition-colors">
+                    <div class="text-2xl mb-4">🛍️</div>
+                    <h3 class="text-lg font-bold text-white mb-4">Core Commerce</h3>
+                    <ul class="text-sm text-slate-400 feature-list space-y-2">
+                        <li>Advanced Product Catalog with Variants</li>
+                        <li>Dynamic Search & Filtering</li>
+                        <li>Secure Checkout Flow</li>
+                        <li>Order Management System</li>
+                        <li>Real-time Inventory Tracking</li>
+                    </ul>
+                </div>
+
+                <!-- Logistics & Ops -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-blue-500/30 transition-colors">
+                    <div class="text-2xl mb-4">🚚</div>
+                    <h3 class="text-lg font-bold text-white mb-4">Logistics & Operations</h3>
+                    <ul class="text-sm text-slate-400 feature-list space-y-2">
+                        <li>Delivery Partner Integration</li>
+                        <li>Geo-Location & Shipping Rules</li>
+                        <li>Automated Invoice Generation (PDF)</li>
+                        <li>Packing Slip Printing</li>
+                        <li>Admin Metrics Dashboard</li>
+                    </ul>
+                </div>
+
+                <!-- Engagement -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-purple-500/30 transition-colors">
+                    <div class="text-2xl mb-4">✨</div>
+                    <h3 class="text-lg font-bold text-white mb-4">User Engagement</h3>
+                    <ul class="text-sm text-slate-400 feature-list space-y-2">
+                        <li>Customer Reviews & Ratings</li>
+                        <li>Promotions & Discount Engine</li>
+                        <li>User Profiles & Order History</li>
+                        <li>Wishlist Functionality</li>
+                        <li>Responsive Mobile Experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack & Tools -->
+    <section id="tech" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-serif font-bold text-white mb-16 text-center">Tools & Ecosystem</h2>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Backend Stack -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2">Backend Engineering</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-rose-400 mb-1">Language</div>
+                            <div class="text-white font-medium">Java 17 LTS</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-rose-400 mb-1">Framework</div>
+                            <div class="text-white font-medium">Spring Boot 3.5</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-rose-400 mb-1">Security</div>
+                            <div class="text-white font-medium">Spring Security (JWT)</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-rose-400 mb-1">Database</div>
+                            <div class="text-white font-medium">PostgreSQL + Liquibase</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-rose-400 mb-1">Media</div>
+                            <div class="text-white font-medium">ImageMagick + S3</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-rose-400 mb-1">Payments</div>
+                            <div class="text-white font-medium">Razorpay Integration</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend Stack -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2">Frontend Experience</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-blue-400 mb-1">Core</div>
+                            <div class="text-white font-medium">React 19 + TypeScript</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-blue-400 mb-1">Build Tool</div>
+                            <div class="text-white font-medium">Vite</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-blue-400 mb-1">Styling</div>
+                            <div class="text-white font-medium">Tailwind CSS</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-blue-400 mb-1">State</div>
+                            <div class="text-white font-medium">Zustand + React Query</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-blue-400 mb-1">Validation</div>
+                            <div class="text-white font-medium">Zod + React Hook Form</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="font-mono text-xs text-blue-400 mb-1">Charts</div>
+                            <div class="text-white font-medium">Recharts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DevOps Row -->
+            <div class="mt-12">
+                <h3 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2">DevOps & Infrastructure</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Docker</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">GitHub
+                        Actions (CI/CD)</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">AWS
+                        S3</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Postman</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">IntelliJ
+                        IDEA</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">VS
+                        Code</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Customizations -->
+    <section id="custom" class="py-24 px-6 bg-slate-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-serif font-bold text-white mb-16 text-center">Tailored for the Client</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-rose-500/10 flex items-center justify-center text-xl shrink-0">
+                            🎨</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-2">Automated HEIC Conversion</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                The client's team uses iPhones for product photography. I built a custom pipeline to
+                                automatically detect and convert HEIC files to web-optimized WebP formats, saving them
+                                hours of manual work.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-rose-500/10 flex items-center justify-center text-xl shrink-0">
+                            ⚡</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-2">Optimistic Admin UI</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                To speed up inventory management, I implemented "Optimistic UI" patterns. Dragging a
+                                product to a category updates the screen instantly (0ms latency), syncing with the
+                                server in the background.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-rose-500/10 flex items-center justify-center text-xl shrink-0">
+                            📍</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-2">Dynamic Delivery Rules</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Built a custom rule engine for delivery fees based on geo-location and cart value,
+                                allowing the client to set precise shipping costs for different city zones.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-rose-500/10 flex items-center justify-center text-xl shrink-0">
+                            📄</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-2">One-Click Invoicing</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Integrated a PDF generation engine directly into the admin panel, allowing staff to
+                                print branded packing slips and invoices with a single click.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer class="py-20 text-center border-t border-white/5 bg-slate-950">
+        <div class="max-w-2xl mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-white mb-8">Let's Build Something Great</h2>
+            <p class="text-slate-400 mb-12">
+                Open for opportunities to architect high-performance web solutions.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="mailto:dharanip911@gmail.com"
+                    class="flex items-center gap-3 px-8 py-4 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-all shadow-lg shadow-rose-500/20">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    dharanip911@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/dharani-perumal-samy-8b77371aa" target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-3 px-8 py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold transition-all">
+                    <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                    LinkedIn Profile
+                </a>
+            </div>
+
+            <div class="mt-16 text-slate-600 text-sm">
+                © 2025 Dharani Perumal Samy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
