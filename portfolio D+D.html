@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharani Perumal Samy | Full Stack Engineer & Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        accent: {
+                            500: '#f43f5e', // Rose
+                            400: '#fb7185',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                        }
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #f43f5e 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-teal {
+            background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid-bg {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Code Block Styling */
+        .code-window {
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+        }
+
+        .code-content {
+            padding: 1.5rem;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #e6edf3;
+        }
+
+        /* Syntax Highlighting */
+        .k {
+            color: #ff7b72;
+        }
+
+        /* keyword */
+        .f {
+            color: #d2a8ff;
+        }
+
+        /* function */
+        .s {
+            color: #a5d6ff;
+        }
+
+        /* string */
+        .c {
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        /* comment */
+        .t {
+            color: #79c0ff;
+        }
+
+        /* type */
+        .v {
+            color: #ffa657;
+        }
+
+        /* variable */
+        .n {
+            color: #e6edf3;
+        }
+
+        /* normal */
+        .annot {
+            color: #d2a8ff;
+        }
+
+        /* annotation */
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #f43f5e;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-rose-500/30 selection:text-rose-200">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-8 h-8 rounded bg-gradient-to-br from-rose-500 to-purple-600 flex items-center justify-center font-bold text-white text-sm">
+                    DP</div>
+                <span class="font-serif text-lg font-bold tracking-wide text-white">Dharani Perumal Samy</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <a href="#roles" class="hover:text-white transition-colors">My Roles</a>
+                <a href="#analysis" class="hover:text-white transition-colors">Business Analysis</a>
+                <a href="#data" class="hover:text-white transition-colors">Data Engineering</a>
+                <a href="#tech" class="hover:text-white transition-colors">Full Stack Dev</a>
+            </div>
+            <a href="mailto:dharanip911@gmail.com"
+                class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm font-medium hover:bg-white/10 transition-all text-white">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative pt-48 pb-32 px-6 overflow-hidden">
+        <div class="absolute inset-0 grid-bg bg-grid-pattern opacity-20 pointer-events-none"></div>
+        <div
+            class="absolute top-0 right-0 w-[800px] h-[800px] bg-rose-500/10 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/4">
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-xs font-medium tracking-widest text-teal-400 mb-8 uppercase">
+                Developer + Data Analyst + Business Analyst
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
+                Blossom & Buds: <br />
+                <span class="text-gradient-teal font-serif italic pr-2">Data-Driven Engineering.</span>
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed font-light">
+                I didn't just write code. I analyzed the business bottlenecks, architected the data pipelines,
+                and built the full-stack solution to solve them. A complete end-to-end delivery.
+            </p>
+
+            <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-400">
+                <div class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-400"></span> Business Intelligence
+                </div>
+                <div class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span> Full Stack Architecture
+                </div>
+                <div class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-purple-400"></span> Data Visualization
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Triple Threat Role -->
+    <section id="roles" class="py-24 px-6 border-y border-white/5 bg-white/[0.02]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-serif font-bold text-white mb-16 text-center">One Project, Three Critical Roles
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Business Analyst -->
+                <div class="glass-panel p-8 rounded-2xl border-t-4 border-rose-500 hover:bg-white/5 transition-colors">
+                    <div class="text-2xl mb-4">👩‍💼</div>
+                    <h3 class="text-lg font-bold text-white mb-4">Business Analyst</h3>
+                    <p class="text-sm text-slate-400 mb-4">
+                        Identified key operational inefficiencies. Defined requirements for inventory management,
+                        dynamic shipping rules, and customer retention strategies.
+                    </p>
+                    <div class="text-xs font-mono text-rose-400">Artifacts: Requirements Doc, Process Flows</div>
+                </div>
+
+                <!-- Data Analyst -->
+                <div class="glass-panel p-8 rounded-2xl border-t-4 border-teal-500 hover:bg-white/5 transition-colors">
+                    <div class="text-2xl mb-4">📊</div>
+                    <h3 class="text-lg font-bold text-white mb-4">Data Analyst</h3>
+                    <p class="text-sm text-slate-400 mb-4">
+                        Designed the metrics dashboard. Aggregated raw SQL data into actionable insights (Sales Trends,
+                        Category Mix, Customer Growth) using Recharts.
+                    </p>
+                    <div class="text-xs font-mono text-teal-400">Tools: SQL Aggregation, Recharts, JSONB</div>
+                </div>
+
+                <!-- Developer -->
+                <div class="glass-panel p-8 rounded-2xl border-t-4 border-blue-500 hover:bg-white/5 transition-colors">
+                    <div class="text-2xl mb-4">💻</div>
+                    <h3 class="text-lg font-bold text-white mb-4">Full Stack Developer</h3>
+                    <p class="text-sm text-slate-400 mb-4">
+                        Executed the vision. Built the robust Java Spring Boot backend and responsive React frontend to
+                        bring the business and data requirements to life.
+                    </p>
+                    <div class="text-xs font-mono text-blue-400">Stack: Java 17, Spring Boot, React 19</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Analysis Deep Dive -->
+    <section id="analysis" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2">
+                    <div class="text-rose-400 font-bold tracking-wider text-xs mb-2 uppercase">Business Analysis</div>
+                    <h2 class="text-3xl font-serif font-bold text-white mb-6">Solving Real Business Problems</h2>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        The client was losing money on shipping due to flat-rate fees. As a BA, I modeled a new "Dynamic
+                        Delivery Rule" system based on geo-zones and cart value.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-400 font-bold text-sm">
+                                1</div>
+                            <div>
+                                <h4 class="text-white font-bold">Problem Definition</h4>
+                                <p class="text-sm text-slate-400">Flat rates undercharged distant deliveries and
+                                    overcharged local ones, hurting conversion.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-400 font-bold text-sm">
+                                2</div>
+                            <div>
+                                <h4 class="text-white font-bold">Solution Architecture</h4>
+                                <p class="text-sm text-slate-400">Designed a `DeliveryFeeRules` entity to allow granular
+                                    control: State-level, District-level, or Default rates.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 code-window">
+                    <div class="code-header">
+                        <div class="text-xs text-slate-500 font-mono">DeliveryFeeRules.java</div>
+                    </div>
+                    <div class="code-content">
+                        <span class="annot">@Entity</span>
+                        <span class="k">public class</span> <span class="t">DeliveryFeeRules</span> {
+                        <span class="annot">@Enumerated</span>(<span class="t">EnumType</span>.<span
+                            class="v">STRING</span>)
+                        <span class="k">private</span> <span class="t">RuleScope</span> <span class="v">scope</span>;
+                        <span class="c">// STATE, DISTRICT</span>
+
+                        <span class="k">private</span> <span class="t">Long</span> <span class="v">scopeId</span>; <span
+                            class="c">// e.g. District ID</span>
+
+                        <span class="k">private</span> <span class="t">BigDecimal</span> <span
+                            class="v">feeAmount</span>;
+
+                        <span class="c">// Allows the business to define:</span>
+                        <span class="c">// "Chennai District = ₹50"</span>
+                        <span class="c">// "Tamil Nadu State = ₹100"</span>
+                        <span class="c">// "Default = ₹200"</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Engineering Deep Dive -->
+    <section id="data" class="py-32 px-6 bg-slate-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row-reverse gap-16 items-center">
+                <div class="md:w-1/2">
+                    <div class="text-teal-400 font-bold tracking-wider text-xs mb-2 uppercase">Data Engineering &
+                        Analytics</div>
+                    <h2 class="text-3xl font-serif font-bold text-white mb-6">Turning Data into Decisions</h2>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Stakeholders needed real-time visibility. I built a custom `AdminMetricsController` to aggregate
+                        millions of records into instant trend lines, visualized with Recharts.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="text-2xl font-bold text-white mb-1">SQL</div>
+                            <div class="text-xs text-slate-400">Complex Aggregations</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="text-2xl font-bold text-white mb-1">JSON</div>
+                            <div class="text-xs text-slate-400">Efficient Payloads</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 code-window">
+                    <div class="code-header">
+                        <div class="text-xs text-slate-500 font-mono">AdminMetricsController.java</div>
+                    </div>
+                    <div class="code-content">
+                        <span class="annot">@GetMapping</span>(<span class="s">"/trend"</span>)
+                        <span class="k">public</span> <span class="t">List</span>&lt;<span
+                            class="t">TrendPoint</span>&gt; <span class="f">trend</span>(<span
+                            class="annot">@RequestParam</span> <span class="t">String</span> <span
+                            class="v">range</span>) {
+                        <span class="c">// Aggregates orders & revenue by day/week/month</span>
+                        <span class="c">// Returns optimized JSON for frontend charts</span>
+                        <span class="k">return</span> <span class="v">metricsService</span>.<span
+                            class="f">getTrendData</span>(<span class="v">range</span>);
+                        }
+
+                        <span class="c">// Frontend: Recharts Implementation</span>
+                        <span class="t">&lt;LineChart data={trend}&gt;</span>
+                        <span class="t">&lt;Line dataKey="revenue" stroke="#F6C320" /&gt;</span>
+                        <span class="t">&lt;Line dataKey="orders" stroke="#F05D8B" /&gt;</span>
+                        <span class="t">&lt;/LineChart&gt;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack & Tools -->
+    <section id="tech" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-serif font-bold text-white mb-16 text-center">The Full Stack Toolbox</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Backend -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2">Engineering</h3>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex justify-between"><span>Java 17 LTS</span> <span
+                                class="text-slate-600">Core</span></li>
+                        <li class="flex justify-between"><span>Spring Boot 3.5</span> <span
+                                class="text-slate-600">Framework</span></li>
+                        <li class="flex justify-between"><span>Spring Security</span> <span
+                                class="text-slate-600">Auth</span></li>
+                        <li class="flex justify-between"><span>React 19</span> <span
+                                class="text-slate-600">Frontend</span></li>
+                        <li class="flex justify-between"><span>Docker</span> <span class="text-slate-600">DevOps</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Data -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2">Data & Analytics</h3>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex justify-between"><span>PostgreSQL</span> <span
+                                class="text-slate-600">RDBMS</span></li>
+                        <li class="flex justify-between"><span>Liquibase</span> <span class="text-slate-600">Schema
+                                Ops</span></li>
+                        <li class="flex justify-between"><span>Recharts</span> <span class="text-slate-600">Viz</span>
+                        </li>
+                        <li class="flex justify-between"><span>SQL Aggregations</span> <span
+                                class="text-slate-600">Querying</span></li>
+                        <li class="flex justify-between"><span>Excel/CSV Exports</span> <span
+                                class="text-slate-600">Reporting</span></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2">Business Analysis</h3>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex justify-between"><span>Requirement Gathering</span> <span
+                                class="text-slate-600">Process</span></li>
+                        <li class="flex justify-between"><span>Process Modeling</span> <span
+                                class="text-slate-600">Design</span></li>
+                        <li class="flex justify-between"><span>User Stories</span> <span
+                                class="text-slate-600">Agile</span></li>
+                        <li class="flex justify-between"><span>KPI Definition</span> <span
+                                class="text-slate-600">Strategy</span></li>
+                        <li class="flex justify-between"><span>Stakeholder Mgmt</span> <span class="text-slate-600">Soft
+                                Skill</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer class="py-20 text-center border-t border-white/5 bg-slate-950">
+        <div class="max-w-2xl mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-white mb-8">Ready to Drive Impact?</h2>
+            <p class="text-slate-400 mb-12">
+                Looking for a role that bridges the gap between Business Strategy, Data Insights, and Technical
+                Execution.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="mailto:dharanip911@gmail.com"
+                    class="flex items-center gap-3 px-8 py-4 rounded-xl bg-teal-500 hover:bg-teal-600 text-white font-bold transition-all shadow-lg shadow-teal-500/20">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    dharanip911@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/dharani-perumal-samy-8b77371aa" target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-3 px-8 py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold transition-all">
+                    <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                    LinkedIn Profile
+                </a>
+            </div>
+
+            <div class="mt-16 text-slate-600 text-sm">
+                © 2025 Dharani Perumal Samy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
